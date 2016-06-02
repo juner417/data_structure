@@ -16,4 +16,6 @@ int main()
 		head = (int*)malloc(sizeof(int));
 		*head = n;
 	}
+
+	printf("Your last input : %d \n", *head);
 }
