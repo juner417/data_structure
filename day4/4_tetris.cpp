@@ -19,10 +19,10 @@ void print_block(int x, int y)
 	{
 	    for (int i = 0; i<4; i++)
 		{
-			if (block1[i][j] == 1)
+			if (block1[j][i] == 1)
 			{
 				gotoxy(x+i * 2, y + j);
-				printf("ㅁ");
+				printf("◼︎");
 			}
 		}
 	}
@@ -30,7 +30,6 @@ void print_block(int x, int y)
 
 int main() 
 {
-	//ㅁ
 	system("clear"); 
 	print_block(10,10);
 }
