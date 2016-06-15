@@ -36,7 +36,7 @@ void insert_front(int n)
 void display()
 {
 	NODE* cur = 0;
-	system("cls");
+	system("clear");
 	printf("[head]");
 
 	cur = head->next;
@@ -91,6 +91,7 @@ int main()
 
 	while (1)
 	{
+        printf("input_num(end=-1,last=%d)>> ", n);
 		scanf("%d", &n);
 		if (n == -1) break;
 		insert_back(n);

@@ -87,10 +87,25 @@ void display()
 	}
 }
 
-void reverse_display() 
+// 재귀함수를 이용함...
+void reverse_display_recur(NODE* node) 
 {
-	// 과제 망들어 보시오 힌트: cur = cur->prev
+	// 과제 망들어 보시오 힌트: cur = cur->prev	
+	if (node->next != head)
+		reverse_display_recur(node->next);
+    printf("-> %d ", node->data);
 }
+void reverse_display()
+{
+    printf("[tail]");
+    NODE* cur = 0;
+	for(cur = head->prev; cur != head; cur=cur->prev)
+	{
+		printf("-> %d", cur->data);
+	}
+	
+}
+
 int main() 
 {
 	init_list();
@@ -101,5 +116,8 @@ int main()
 	insert_back(5);
 	insert_back(6);
 	display(); //3-2-1-4-5-6
+    printf("\n");
+	reverse_display_recur(head->next);
+    printf("\n");
 	reverse_display();
 }
