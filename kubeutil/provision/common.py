@@ -6,8 +6,9 @@ import os, sys, ConfigParser, getopt
 def print_usage():
 
     print ('WARN) check the args')
-    print ('USAGE) python %s -c config_file -m action -h host(optional)' % (sys.argv[0]))
-    print ('  [action]: deploy, rollback, export, docker ')
+    print ('USAGE) python %s -c config_file -m action -h host(optional) -l clusterName(optional)' 
+          % (sys.argv[0]))
+    print ('  [action]: kube_upgrade, kube_rollback, export, docker_upgrade, docker_rollback, scaleout')
     sys.exit(1)
 
 
@@ -33,8 +34,9 @@ def read_opt():
     configfile = None
     cmd = None
     host = None
+    clusternm = None
     try:
-        opt, args = getopt.getopt(sys.argv[1:], 'c:m:h:')
+        opt, args = getopt.getopt(sys.argv[1:], 'c:m:h:l:')
     except getopt.GetoptError as err:
         print_usage()
         sys.exit(2)
@@ -48,12 +50,10 @@ def read_opt():
             cmd = p
         elif op == '-h':
             host = p
+        elif op == '-l':
+            clusternm = p
         else:
             print_usage()
             sys.exit(2)
-    return configfile, cmd, host
+    return configfile, cmd, host, clusternm
     
-
-if __name__=='__main__':
-    a = config_map('config.ini','one')
-    print "name : %s" % a['name']
