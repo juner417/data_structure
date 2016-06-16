@@ -44,7 +44,8 @@ int main()
 	push(&s1, 10);
 	push(&s1, 20);
 	push(&s1, 30);
-
+    
+	printf("stack top: %d\n", top(&s1));
 	while( ! isempty(&s1) )
 	{
 		printf("%d\n", pop(&s1)); 

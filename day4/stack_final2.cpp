@@ -18,6 +18,7 @@ void push(NODE** head, int n)
     NODE* temp = (NODE*)malloc(sizeof(NODE));
     temp->data = n;
 	temp->next = *head;
+	// stack은 FILO이므로 insert_front와 동일 
 	*head = temp;
 }
 
